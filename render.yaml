@@ -1,6 +1,6 @@
 services:
   # 1) Base de datos MySQL
-  - type: private_service
+  - type: pserv
     name: rently-mysql
     env: docker
     dockerImage: mysql:8.0
