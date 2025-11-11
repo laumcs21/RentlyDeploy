@@ -1,0 +1,38 @@
+services:
+  # 1) MySQL en un servicio privado
+  - type: private-service
+    name: rently-mysql
+    env: docker
+    dockerImage: mysql:8.0
+    plan: starter
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        value: 0108lomejor
+      - key: MYSQL_DATABASE
+        value: rently
+    disk:
+      name: mysql-data
+      mountPath: /var/lib/mysql
+      sizeGB: 10
+
+  # 2) Backend Spring
+  - type: web
+    name: rently-back
+    env: docker
+    dockerfilePath: ./Rently/Dockerfile
+    plan: starter
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://rently-mysql:3306/rently
+      - key: SPRING_DATASOURCE_USERNAME
+        value: root
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: 0108lomejor
+    # Render expone el puerto que abra tu app; tu imagen ya expone 8080
+
+  # 3) Frontend Angular + nginx
+  - type: web
+    name: rently-front
+    env: docker
+    dockerfilePath: ./RentlyFront/inicio/Dockerfile
+    plan: starter

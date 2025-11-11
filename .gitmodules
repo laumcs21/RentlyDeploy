@@ -1,0 +1,6 @@
+[submodule "Rently"]
+	path = Rently
+	url = https://github.com/laumcs21/Rently.git
+[submodule "RentlyFront/inicio"]
+	path = RentlyFront/inicio
+	url = https://github.com/laumcs21/RentlyFront.git
