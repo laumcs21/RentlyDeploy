@@ -3,7 +3,7 @@ services:
   - type: pserv
     name: rently-mysql
     env: docker
-    dockerImage: mysql:8.0
+    image: mysql:8.0
     plan: free
     envVars:
       - key: MYSQL_ROOT_PASSWORD
@@ -29,7 +29,7 @@ services:
       - key: SPRING_DATASOURCE_PASSWORD
         value: 0108lomejor
 
-  # 3) Frontend Angular + Nginx
+  # 3) Front Angular + Nginx
   - type: web
     name: rently-front
     env: docker
