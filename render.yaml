@@ -2,8 +2,9 @@ services:
   # 1) Base de datos MySQL
   - type: pserv
     name: rently-mysql
-    env: docker
-    image: mysql:8.0
+    env: docker_image
+    image:
+      url: mysql:8.0
     plan: free
     envVars:
       - key: MYSQL_ROOT_PASSWORD
