@@ -1,10 +1,10 @@
 services:
-  # Base de datos MySQL
-  - type: private-service
+  # 1) Base de datos MySQL
+  - type: private_service
     name: rently-mysql
     env: docker
     dockerImage: mysql:8.0
-    plan: free  # 👈 cambia "starter" por "free"
+    plan: free
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         value: 0108lomejor
@@ -13,14 +13,14 @@ services:
     disk:
       name: mysql-data
       mountPath: /var/lib/mysql
-      sizeGB: 1  # máximo permitido gratis
+      sizeGB: 1   # máximo gratis
 
-  # Backend Spring Boot
+  # 2) Backend Spring Boot
   - type: web
     name: rently-back
     env: docker
     dockerfilePath: ./Rently/Dockerfile
-    plan: free  # 👈 cambia a "free"
+    plan: free
     envVars:
       - key: SPRING_DATASOURCE_URL
         value: jdbc:mysql://rently-mysql:3306/rently
@@ -29,9 +29,9 @@ services:
       - key: SPRING_DATASOURCE_PASSWORD
         value: 0108lomejor
 
-  # Frontend Angular + Nginx
+  # 3) Front Angular + Nginx
   - type: web
     name: rently-front
     env: docker
     dockerfilePath: ./RentlyFront/inicio/Dockerfile
-    plan: free  # 👈 cambia a "free"
+    plan: free
