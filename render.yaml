@@ -1,6 +1,6 @@
 services:
-  # 1) Base de datos MySQL
-  - type: pserv
+  # 1) Base de datos MySQL (usando el servicio de base de datos de Render)
+  - type: web
     name: rently-mysql
     env: docker
     image: mysql:8.0
@@ -10,6 +10,8 @@ services:
         value: 0108lomejor
       - key: MYSQL_DATABASE
         value: rently
+    # Opcional: reiniciar solo si falla
+    autoDeploy: false
 
   # 2) Backend Spring Boot
   - type: web
