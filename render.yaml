@@ -1,20 +1,17 @@
 services:
-  # 1) Base de datos MySQL
+  # 1) Base de datos MySQL (sin disco)
   - type: pserv
     name: rently-mysql
     env: docker_image
     image:
       url: mysql:8.0
     plan: free
+    startCommand: "docker-entrypoint.sh mysqld"
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         value: 0108lomejor
       - key: MYSQL_DATABASE
         value: rently
-    disk:
-      name: mysql-data
-      mountPath: /var/lib/mysql
-      sizeGB: 1   # máximo gratis
 
   # 2) Backend Spring Boot
   - type: web
