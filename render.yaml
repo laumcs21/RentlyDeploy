@@ -1,20 +1,5 @@
 services:
-  # 1) Base de datos MySQL (usando el servicio de base de datos de Render)
-  - type: web
-    name: rently-mysql
-    env: docker
-    image:
-      url: mysql:8.0
-    plan: free
-    envVars:
-      - key: MYSQL_ROOT_PASSWORD
-        value: 0108lomejor
-      - key: MYSQL_DATABASE
-        value: rently
-    # Opcional: reiniciar solo si falla
-    autoDeploy: false
-
-  # 2) Backend Spring Boot
+  # Backend Spring Boot
   - type: web
     name: rently-back
     env: docker
@@ -22,13 +7,18 @@ services:
     plan: free
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:mysql://rently-mysql:3306/rently
+        value: jdbc:mysql://maglev.proxy.rlwy.net:21309/railway
+      
       - key: SPRING_DATASOURCE_USERNAME
         value: root
+      
       - key: SPRING_DATASOURCE_PASSWORD
-        value: 0108lomejor
+        value: GYWSUumzpTGpZlJBuDWJBmwtrAtRHdih
+      
+      - key: SERVER_PORT
+        value: 8080
 
-  # 3) Front Angular + Nginx
+  # Frontend Angular + Nginx
   - type: web
     name: rently-front
     env: docker
