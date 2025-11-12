@@ -4,17 +4,15 @@ services:
     name: rently-back
     env: docker
     dockerfilePath: ./Rently/Dockerfile
+    dockerContext: ./Rently              # ← AGREGA ESTA LÍNEA
     plan: free
     envVars:
       - key: SPRING_DATASOURCE_URL
         value: jdbc:mysql://maglev.proxy.rlwy.net:21309/railway
-      
       - key: SPRING_DATASOURCE_USERNAME
         value: root
-      
       - key: SPRING_DATASOURCE_PASSWORD
         value: GYWSUumzpTGpZlJBuDWJBmwtrAtRHdih
-      
       - key: SERVER_PORT
         value: 8080
 
@@ -23,4 +21,5 @@ services:
     name: rently-front
     env: docker
     dockerfilePath: ./RentlyFront/inicio/Dockerfile
+    dockerContext: ./RentlyFront/inicio  # ← AGREGA ESTA LÍNEA
     plan: free
