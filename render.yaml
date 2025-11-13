@@ -20,6 +20,6 @@ services:
   - type: web
     name: rently-front
     env: docker
-    dockerfilePath: ./RentlyFront/inicio/inicio/Dockerfile
-    dockerContext: ./RentlyFront/inicio/inicio
+    dockerfilePath: ./RentlyFront/inicio/Dockerfile
+    dockerContext: ./RentlyFront/inicio
     plan: free
