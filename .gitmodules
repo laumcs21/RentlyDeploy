@@ -2,4 +2,6 @@
 	path = Rently
 	url = https://github.com/laumcs21/Rently.git
 	branch = main
-}
+[submodule "RentlyFront"]
+	path = RentlyFront
+	url = https://github.com/laumcs21/RentlyFront.git
