@@ -21,5 +21,5 @@ services:
     name: rently-front
     env: docker
     dockerfilePath: ./RentlyFront/inicio/inicio/Dockerfile
-    dockerContext: ./RentlyFront/inicio  # ← AGREGA ESTA LÍNEA
+    dockerContext: ./RentlyFront/inicio/inicio
     plan: free
